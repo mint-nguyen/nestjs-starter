@@ -1,4 +1,4 @@
-import { AuthCredentialsDeto } from './dto/auth-credentials.dto';
+import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import {
   Body,
   Controller,
@@ -14,7 +14,13 @@ export class AuthController {
 
   @Post('/signup')
   @UsePipes(ValidationPipe)
-  signUp(@Body() authCredentialsDto: AuthCredentialsDeto): Promise<void> {
+  signUp(@Body() authCredentialsDto: AuthCredentialsDto): Promise<void> {
     return this.authService.signUp(authCredentialsDto);
+  }
+
+  @Post('signin')
+  @UsePipes(ValidationPipe)
+  signIn(@Body() authCredentialsDto: AuthCredentialsDto) {
+    return this.authService.signIn(authCredentialsDto);
   }
 }
