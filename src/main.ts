@@ -9,7 +9,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const logger = new Logger('bootstrap');
   app.enableCors({
-    origin: 'http://task-management-mint.us-east-1.elasticbeanstalk.com/',
+    origin:
+      'http://task-management-frontend.s3-website-us-east-1.amazonaws.com/',
   });
 
   // if (process.env.NODE_ENV === 'development') {
